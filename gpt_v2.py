@@ -24,7 +24,7 @@ print("categorias")
 print(categorization_df)
 
 df2 = pd.merge(df2, categorization_df, on='CODIGO', how='left')  # Agregar la descripción
-df2 = df2.rename(columns={'A111A': 'PIB', 'CODIGO': 'Numero del Sector', 'DESC_CODIGO': 'Sector'})
+df2 = df2.rename(columns={'A111A': 'PBT', 'CODIGO': 'Numero del Sector', 'DESC_CODIGO': 'Sector'})
 
 
 print("merge")
@@ -81,9 +81,10 @@ def create_figure(dataframe, title):
     """Crear gráfica de barras con título."""
     return px.bar(
         dataframe,
-        x='PIB',
+        x='PBT',
         y='Numero del Sector',
         hover_data={'Numero del Sector': False, 'Sector': True},  # Mostrar descripción al pasar el puntero
+        labels={'PBT': 'Producto Bruto Total (Millones de Pesos)'},  # Cambiar el título del eje X
         height=800,
         title=title
     )
