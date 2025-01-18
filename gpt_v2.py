@@ -7,6 +7,7 @@ import pandas as pd
 
 # Crear la app Dash
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 # Cargar datos y filtrar columnas necesarias
 df = pd.read_csv('ce2019_mich.csv', index_col=False)
